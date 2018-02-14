@@ -34,6 +34,7 @@ CookieStand.prototype.generateCookies = function() {
     var max = this.maxHourlyCustomers * this.avgCookiesPerCustomer;
     var randomCookies = Math.floor(Math.random() * (max - min + 1)) + min;
 
+    //Appends random number of cookies for each hour to cookiesByHour array
     this.cookiesByHour.push(randomCookies);
     this.totalCookies += randomCookies;
   }
@@ -52,8 +53,13 @@ CookieStand.prototype.render = function() {
     tdEl.textContent = this.cookiesByHour[i];
     trEl.appendChild(tdEl);
   }
+  //Adding total cookies required for each location (for that day)
+  var thEl = document.createElement('th');
+  thEl.textContent = this.totalCookies;
+  trEl.appendChild(thEl);
+
   storeTable.appendChild(trEl);
-}
+};
 
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
@@ -65,6 +71,10 @@ function makeHeaderRow() {
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Total';
+  trEl.appendChild(thEl);
+
   storeTable.appendChild(trEl);
 }
 
@@ -92,13 +102,11 @@ function makeTotalRow() {
   }
   storeTable.appendChild(trEl);
 }
-
-var pike = new CookieStand('Pike Place', '1st and Pike', 0, 100, 2);
-var alki = new CookieStand('Alki', 'West Seattle', 5, 30, 2.5);
-var seaTac = new CookieStand('SeaTac Airport', 'South Seattle', 5, 150, 4.5);
-var seaCenter = new CookieStand('Seattle Center', 'Downtown Seattle', 10, 90, 1.5);
-var capitol = new CookieStand('Capitol Hill', 'Downtown Seattle', 2, 120, 3);
-//console.table(stores);
+new CookieStand('Pike Place', '1st and Pike', 0, 100, 2);
+new CookieStand('Alki', 'West Seattle', 5, 30, 2.5);
+new CookieStand('SeaTac Airport', 'South Seattle', 5, 150, 4.5);
+new CookieStand('Seattle Center', 'Downtown Seattle', 10, 90, 1.5);
+new CookieStand('Capitol Hill', 'Downtown Seattle', 2, 120, 3);
 makeHeaderRow();
 makeStoreRows();
 makeTotalRow();
