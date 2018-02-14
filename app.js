@@ -44,8 +44,10 @@ CookieStand.prototype.render = function() {
   this.generateCookies();
   var tdEl = document.createElement('td'); 
   var trEl = document.createElement('tr');
-  //Add store name before cookie numbers
+  //Add store name before adding hourly cookie sales
   tdEl.textContent = this.name;
+  tdEl.style.textAlign = 'left';
+  tdEl.style.fontWeight = 'bold';
   trEl.appendChild(tdEl);
 
   for(var i = 0; i < hours.length; i++) {
@@ -85,6 +87,8 @@ function makeStoreRows() {
 }
 
 function makeTotalRow() {
+  var totalCookiesRequired = 0;
+
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Total';
@@ -93,13 +97,19 @@ function makeTotalRow() {
   for(var i = 0; i < hours.length; i++) {
     var tempTotal = 0;
     for(var j = 0; j < stores.length; j++) {
-      tempTotal += stores[j].cookiesByHour[i];
+      tempTotal += stores[j].cookiesByHour[i]; 
     }
-
     thEl = document.createElement('th');
     thEl.textContent = tempTotal;
     trEl.appendChild(thEl);
+
+    //Adds all cookies sold for each store/hour totalCookiesRequired
+    totalCookiesRequired += tempTotal;
   }
+  thEl = document.createElement('th');
+  thEl.textContent = totalCookiesRequired;
+  trEl.appendChild(thEl); 
+  
   storeTable.appendChild(trEl);
 }
 new CookieStand('Pike Place', '1st and Pike', 0, 100, 2);
@@ -110,3 +120,4 @@ new CookieStand('Capitol Hill', 'Downtown Seattle', 2, 120, 3);
 makeHeaderRow();
 makeStoreRows();
 makeTotalRow();
+

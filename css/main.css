@@ -1,3 +1,20 @@
-table, th, td {
-  border: 1px rgb(139, 139, 139) ridge;
+html, body {
+  width: 100%;
+  background-color: rgb(25, 0, 114);
+}
+
+th, td {
+  border: 3px rgb(197, 197, 197) ridge;
+  background-color: rgb(230, 223, 223);
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+table {
+  margin: 0 auto;
+  border: 10px rgb(197, 197, 197) ridge;
+  padding: 2px;
+  background-color: #02166e;
+
 }
