@@ -20,7 +20,7 @@ function CookieStand(name, location, minHourlyCustomers, maxHourlyCustomers, avg
 CookieStand.prototype.generateCustomers = function() {
   for(var i = 0; i < hours.length; i++) {
     var oneHourCustomers = Math.floor(Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour + 1)) + this.minCustomersPerHour;
-    
+
     this.customersByHour.push(oneHourCustomers);
     this.totalCustomers += this.customersByHour[i];
   }
@@ -42,7 +42,7 @@ CookieStand.prototype.generateCookies = function() {
 
 CookieStand.prototype.render = function() {
   this.generateCookies();
-  var tdEl = document.createElement('td'); 
+  var tdEl = document.createElement('td');
   var trEl = document.createElement('tr');
 
   //Adding store names before adding hourly cookie sales
@@ -104,7 +104,7 @@ function makeTotalRow() {
   for(var i = 0; i < hours.length; i++) {
     var tempTotal = 0;
     for(var j = 0; j < stores.length; j++) {
-      tempTotal += stores[j].cookiesByHour[i]; 
+      tempTotal += stores[j].cookiesByHour[i];
     }
     thEl = document.createElement('th');
     thEl.textContent = tempTotal;
@@ -119,15 +119,15 @@ function makeTotalRow() {
   thEl.textContent = totalCookiesRequired;
   thEl.style.backgroundColor = '#414141';
   thEl.style.color = '#ffffff';
-  trEl.appendChild(thEl); 
-  
+  trEl.appendChild(thEl);
+
   storeTable.appendChild(trEl);
 }
-new CookieStand('Pike Place', '1st and Pike', 0, 100, 2);
-new CookieStand('Alki', 'West Seattle', 5, 30, 2.5);
-new CookieStand('SeaTac Airport', 'South Seattle', 5, 150, 4.5);
-new CookieStand('Seattle Center', 'Downtown Seattle', 10, 90, 1.5);
-new CookieStand('Capitol Hill', 'Downtown Seattle', 2, 120, 3);
+new CookieStand('Pike Place', '1st and Pike', 23, 65, 6.3);
+new CookieStand('Alki', 'West Seattle', 2, 16, 4.6);
+new CookieStand('SeaTac Airport', 'South Seattle', 3, 24, 1.2);
+new CookieStand('Seattle Center', 'Downtown Seattle', 11, 38, 3.7);
+new CookieStand('Capitol Hill', 'Downtown Seattle', 20, 38, 2.3);
 makeHeaderRow();
 makeStoreRows();
 makeTotalRow();
