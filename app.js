@@ -44,7 +44,8 @@ CookieStand.prototype.render = function() {
   this.generateCookies();
   var tdEl = document.createElement('td'); 
   var trEl = document.createElement('tr');
-  //Add store name before adding hourly cookie sales
+
+  //Adding store names before adding hourly cookie sales
   tdEl.textContent = this.name;
   tdEl.style.textAlign = 'left';
   tdEl.style.fontWeight = 'bold';
@@ -58,6 +59,8 @@ CookieStand.prototype.render = function() {
   //Adding total cookies required for each location (for that day)
   var thEl = document.createElement('th');
   thEl.textContent = this.totalCookies;
+  thEl.style.backgroundColor = '#414141';
+  thEl.style.color = '#ffffff';
   trEl.appendChild(thEl);
 
   storeTable.appendChild(trEl);
@@ -75,6 +78,8 @@ function makeHeaderRow() {
   }
   thEl = document.createElement('th');
   thEl.textContent = 'Total';
+  thEl.style.backgroundColor = '#414141';
+  thEl.style.color = '#ffffff';
   trEl.appendChild(thEl);
 
   storeTable.appendChild(trEl);
@@ -92,6 +97,8 @@ function makeTotalRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   thEl.textContent = 'Total';
+  thEl.style.backgroundColor = '#414141';
+  thEl.style.color = '#ffffff';
   trEl.appendChild(thEl);
 
   for(var i = 0; i < hours.length; i++) {
@@ -101,6 +108,8 @@ function makeTotalRow() {
     }
     thEl = document.createElement('th');
     thEl.textContent = tempTotal;
+    thEl.style.backgroundColor = '#414141';
+    thEl.style.color = '#ffffff';
     trEl.appendChild(thEl);
 
     //Adds all cookies sold for each store/hour totalCookiesRequired
@@ -108,6 +117,8 @@ function makeTotalRow() {
   }
   thEl = document.createElement('th');
   thEl.textContent = totalCookiesRequired;
+  thEl.style.backgroundColor = '#414141';
+  thEl.style.color = '#ffffff';
   trEl.appendChild(thEl); 
   
   storeTable.appendChild(trEl);
