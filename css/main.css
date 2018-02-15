@@ -12,8 +12,45 @@ th, td {
 }
 
 table {
+  display: table;
   margin: 0 auto;
   border: 10px rgb(197, 197, 197) ridge;
   padding: 2px;
   background-color: #000000;
+}
+
+legend {
+  background-color: rgb(197, 197, 197);
+  border: 2px rgb(0, 0, 0) ridge;
+  font-size: 20px;
+}
+
+label {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+form {
+  position: static;
+  text-align: center;
+}
+
+fieldset {
+  margin-right: 15%;
+  margin-left: 15%;
+  background-color: rgb(197, 197, 197);
+  border: 2px rgb(197, 197, 197) ridge;
+  font-size: 20px;
+}
+
+#clear_table {
+  font-size: 10px;
+  font-weight: bold;
+  position: fixed;
+  margin-left: 50%;
+}
+
+#submit_butt {
+  font-size: 15px;
+  font-weight: bold;
 }
