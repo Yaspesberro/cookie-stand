@@ -8,8 +8,30 @@
   <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
 <body>
-  <table id="table"></table>
+  
 
+  <form id="form">
+    <fieldset>
+      <legend>Salmon Cookies Form</legend>
+
+      <label for="name">Name: </label>
+      <input name="name" type="text" size="20" />
+
+      <label for="min_customers">Min. customers: </label>
+      <input name="min_customers" type="text" size="15" />
+
+      <label for="max_customers">Max. customers: </label>
+      <input name="max_customers" type="text" size="15" />
+
+      <label for="avg_cookies">Avg. cookies per customer: </label>
+      <input name="avg_cookies" type="text" size="15" />
+
+      <button id="submit_butt" type="submit">Create</button>
+    </fieldset>
+  </form>
+
+  <table id="table"></table>
+  <button id="clear_table">Clear table</button>
   <script src="app.js" type="text/javascript"></script>
 </body>
 </html>
