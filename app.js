@@ -137,18 +137,18 @@ makeHeaderRow();
 makeStoreRows();
 makeTotalRow();
 
-function handleSubmit(event) {
+function handleSubmit(e) { //Event
   //Keeps page from reloading on submit
   event.preventDefault(); 
-  var inputName = event.target.name.value;
-  var inputMin = event.target.min_customers.value;
-  var inputMax = event.target.max_customers.value;
-  var inputAvg = event.target.avg_cookies.value;
+  var inputName = e.target.name.value;
+  var inputMin = e.target.min_customers.value;
+  var inputMax = e.target.max_customers.value;
+  var inputAvg = e.target.avg_cookies.value;
 
-  //Validating text fields so they're not empty 
-  if(!inputMin || !inputMax || !inputAvg) {
-    alert('Text fields cannot be empty!');
-  }  else {
+  //Validating text fields so they're not empty or contain non-number variables
+  if(!inputName || isNaN(inputMin) || isNaN(inputMax) || isNaN(inputAvg)) {
+    alert('Text fields cannot be empty and/or contain invalid inputs!');
+  } else {
     storeTable.innerHTML = '';
     new CookieStand(inputName, Number(inputMin), Number(inputMax), Number(inputAvg));
     makeHeaderRow();
@@ -156,10 +156,10 @@ function handleSubmit(event) {
     makeTotalRow();
   }
   //Empties the text fields
-  event.target.name.value = null;
-  event.target.min_customers.value = null;
-  event.target.max_customers.value = null;
-  event.target.avg_cookies.value = null;
+  e.target.name.value = null;
+  e.target.min_customers.value = null;
+  e.target.max_customers.value = null;
+  e.target.avg_cookies.value = null;
 }
 
 storeForm.addEventListener('submit', handleSubmit);
@@ -176,5 +176,5 @@ clearTable.addEventListener('click', function() {
     makeTotalRow();
   }
 });
- 
-//Current problem = When adding new store, all elements in cookie array are set to maxHourlyCustomers
+
+
