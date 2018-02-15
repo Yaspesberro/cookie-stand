@@ -1,6 +1,8 @@
 html, body {
   width: 100%;
   background-color: rgb(25, 0, 114);
+  font-family: 'Belgrano';
+  font-size: 22px;
 }
 
 th, td {
@@ -21,7 +23,7 @@ table {
 
 legend {
   background-color: rgb(197, 197, 197);
-  border: 2px rgb(0, 0, 0) ridge;
+  border: 4px rgb(0, 0, 0) double;
   font-size: 20px;
 }
 
@@ -47,6 +49,7 @@ fieldset {
   font-size: 10px;
   font-weight: bold;
   position: fixed;
+  margin-right: 50%;
   margin-left: 50%;
 }
 
