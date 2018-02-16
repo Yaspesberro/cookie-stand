@@ -5,6 +5,11 @@ html, body {
   font-size: 22px;
 }
 
+h1 {
+  text-align: center;
+  color: antiquewhite;
+}
+
 th, td {
   border: 3px rgb(197, 197, 197) ridge;
   background-color: rgb(230, 223, 223);
@@ -49,6 +54,7 @@ fieldset {
   font-size: 10px;
   font-weight: bold;
   position: fixed;
+  top: 20;
   margin-right: 50%;
   margin-left: 50%;
 }
@@ -56,4 +62,48 @@ fieldset {
 #submit_butt {
   font-size: 15px;
   font-weight: bold;
+}
+
+#pic_container {
+  display: block;
+  position: relative;
+}
+
+img {
+  height: 150px;
+}
+
+ul {
+  list-style-type: none;  
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(197, 197, 197);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: rgb(66, 66, 66);
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: rgb(29, 32, 206);
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: rgb(143, 143, 143);
+  color: white;
+}
+
+#nav_info {
+  font-size: 15px;
+  float: right;
+  margin-right: 20px;
 }
