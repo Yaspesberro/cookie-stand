@@ -177,4 +177,11 @@ clearTable.addEventListener('click', function() {
   }
 });
 
+//Make code more DRY
+function newElement(elementType, parent, content) {
+  var newEl = document.createElement(elementType);
+  newEl.textContent = content;
+  parent.appendChild(newEl);
+}
+//newElement()
 
