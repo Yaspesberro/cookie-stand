@@ -66,11 +66,11 @@ fieldset {
 
 #pic_container {
   display: block;
-  position: relative;
+  text-align: center;
 }
 
 img {
-  height: 150px;
+  height: 225px;
 }
 
 ul {
