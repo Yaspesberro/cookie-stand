@@ -21,12 +21,17 @@ function CookieStand(name, minHourlyCustomers, maxHourlyCustomers, avgCookiesPer
 CookieStand.prototype.generateCustomers = function() {
   for(var i = 0; i < hours.length; i++) {
     var oneHourCustomers = Math.floor(Math.random() * (this.maxHourlyCustomers - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
+    var oneHourCookies = Math.floor(Math.random() * ((this.maxHourlyCustomers * this.avgCookiesPerCustomer) - this.minHourlyCustomers + 1)) + this.minHourlyCustomers;
 
     this.customersByHour.push(oneHourCustomers);
     this.totalCustomers += this.customersByHour[i];
+
+    //Appends random number of cookies for each hour to cookiesByHour array
+    this.cookiesByHour.push(oneHourCookies);
+    this.totalCookies += oneHourCookies;
   }
 };
-
+/*
 CookieStand.prototype.generateCookies = function() {
   this.generateCustomers();
 
@@ -35,14 +40,12 @@ CookieStand.prototype.generateCookies = function() {
     var max = this.maxHourlyCustomers * this.avgCookiesPerCustomer;
     var randomCookies = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    //Appends random number of cookies for each hour to cookiesByHour array
-    this.cookiesByHour.push(randomCookies);
-    this.totalCookies += randomCookies;
+    
   }
 };
-
+*/
 CookieStand.prototype.render = function() {
-  this.generateCookies();
+  this.generateCustomers();
   var tdEl = document.createElement('td');
   var trEl = document.createElement('tr');
 
@@ -156,10 +159,7 @@ function handleSubmit(e) { //Event
     makeTotalRow();
   }
   //Empties the text fields
-  e.target.name.value = null;
-  e.target.min_customers.value = null;
-  e.target.max_customers.value = null;
-  e.target.avg_cookies.value = null;
+  e.target.reset();
 }
 
 storeForm.addEventListener('submit', handleSubmit);
@@ -177,4 +177,11 @@ clearTable.addEventListener('click', function() {
   }
 });
 
+//Make code more DRY
+function newElement(elementType, parent, content) {
+  var newEl = document.createElement(elementType);
+  newEl.textContent = content;
+  parent.appendChild(newEl);
+}
+//newElement()
 
