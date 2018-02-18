@@ -7,7 +7,8 @@ html, body {
 
 h1 {
   text-align: center;
-  color: antiquewhite;
+  color: white;
+  font-size: 60px;
 }
 
 th, td {
@@ -107,3 +108,12 @@ li a:hover:not(.active) {
   float: right;
   margin-right: 20px;
 }
+
+#pic_container{
+  background-color: white;
+}
+
+#pic_container img {
+  border: 4px white ridge;
+}
+
